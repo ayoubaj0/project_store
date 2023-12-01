@@ -49,3 +49,16 @@ footer {
     padding: 20px;
     text-align: center;
 }
+.catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    background-color: rgb(207, 201, 201);
+    width: 96%;
+    margin: auto;
+    gap: 20px;
+}
+.item {
+    flex-basis: 300px;
+    background-color: #04aa6d;
+    padding: 10px;
+}

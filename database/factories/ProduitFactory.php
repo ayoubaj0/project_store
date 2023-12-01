@@ -20,7 +20,7 @@ class ProduitFactory extends Factory
         return [ 
         'designation'=>$this->faker->sentence,
         'prix_u'=>$this->faker->randomFloat(2,1,500),
-        'quantite_stock'=>$this->faker->randomNumber($min=0),
+        'quantite_stock'=>$this->faker->randomNumber(3),
         'categorie_id'=>Categorie::all()->random()->id
             //
         ];

@@ -10,9 +10,10 @@
 <body>
     <nav>
         <ul>
-            <li><a href="{{route('accueil')}}">Accueil</a></li>
+            <li><a href="{{route('home.index')}}">Catalogue</a></li>
             <li><a href="{{route('categories.index')}}">Gestion des categories</a></li>
             <li><a href="#">Gestion des produits</a></li>
+            <li><a href="{{route('home.panier')}}">Mon panier</a></li>
         </ul>
     </nav>
     <div class="main">
