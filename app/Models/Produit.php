@@ -18,4 +18,7 @@ class Produit extends Model
     public function categorie(){
        return  $this->belongsTo(Categorie::class);
     }
+    public function commandes(){
+        return $this->belongsToMany(Commande::class)->using(LigneDeCommande::class);
+    }
 }

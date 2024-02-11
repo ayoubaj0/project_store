@@ -67,23 +67,34 @@ class CategorieController extends Controller
      */
     public function update(Request $request, string $id)
     {
-          $request->validate([
-            'designation'=>'required|unique:categories,designation',
+         $validated= $request->validate([
+            'designation'=>'required|unique:categories,designation,'.$id,
             'description'=>'required',
         ]);
         $cat=Categorie::find($id);
-        $cat->update($request->all());
-        return redirect()->route('categories.index');
+        $cat->update($validated);
+        return response()->json(['message' => 'Categorie'.$id.'update successfully']);
+        //return redirect()->route('categories.index');
         
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
-        Categorie::destroy($id);
-        return  redirect()->route('categories.index');
+    // public function destroy(string $id)
+    // {
+    //     Categorie::destroy($id);
+    //     return  redirect()->route('categories.index');
 
+    // }
+    public function destroy(string $id)
+{
+    $n = Categorie::destroy($id);
+
+    if ($n != 0) {
+        return response()->json(['message' => 'Record deleted successfully']);
+    } else {
+        return response()->json(['message' => 'Record not found']);
     }
+}
 }
